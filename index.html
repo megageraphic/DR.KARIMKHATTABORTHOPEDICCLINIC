@@ -165,15 +165,15 @@
             color: var(--dark-blue);
         }
 
-        /* زر وأيقونة (احجز الآن) */
+        /* زر وأيقونة (احجز الآن) في الجدول */
         .table-book-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             background: linear-gradient(135deg, #25D366, #0e9347) !important;
             color: #ffffff !important;
-            padding: 8px 18px 8px 12px;
+            padding: 6px 16px 6px 8px;
             border-radius: 50px;
             border: none;
             font-size: 0.95rem;
@@ -184,23 +184,28 @@
         }
 
         .btn-whatsapp-circle {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             background-color: #ffffff;
             color: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             flex-shrink: 0;
+            animation: pulse-green-small 2s infinite; 
         }
 
         .table-book-btn:hover {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px) scale(1.04);
             box-shadow: 0 8px 22px rgba(37, 211, 102, 0.5);
             background: linear-gradient(135deg, #1eb857, #0a6b60) !important;
+        }
+        .table-book-btn:hover .btn-whatsapp-circle {
+            animation: none;
+            transform: rotate(15deg);
         }
 
         /* جدول المواعيد */
@@ -293,10 +298,10 @@
             display: block; 
         }
 
-        /* قسم التواصل والحجز */
+        /* قسم التواصل والأزرار الحديثة */
         .contact-section {
             background: var(--white);
-            padding: 24px 18px;
+            padding: 30px 20px;
             border-radius: 18px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -305,49 +310,121 @@
         }
 
         .booking-text { 
-            font-size: clamp(1.1rem, 3vw, 1.3rem); 
+            font-size: clamp(1.2rem, 3vw, 1.4rem); 
             font-weight: 800; 
             color: var(--dark-blue); 
-            margin-bottom: 18px; 
+            margin-bottom: 25px; 
         }
 
         .btn-container { 
             display: flex; 
             justify-content: center; 
-            gap: 12px; 
+            gap: 20px; 
             flex-wrap: wrap; 
         }
 
-        .btn {
+        .btn-modern {
+            position: relative;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 24px;
-            font-size: 1rem;
+            gap: 15px;
+            padding: 8px 25px 8px 10px;
+            font-size: 1.1rem;
             font-weight: 800;
-            color: var(--white);
+            color: var(--dark-blue);
+            background: var(--white);
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 30px;
-            border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            min-height: 48px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            z-index: 1;
+            min-width: 240px;
         }
 
-        .btn i { font-size: 1.2rem; }
+        .btn-modern::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            border-radius: 50px;
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
 
-        .btn-call { 
+        .btn-modern:hover {
+            border-color: transparent;
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .btn-modern:hover::before {
+            width: 100%;
+        }
+
+        .btn-modern.call-btn::before {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            box-shadow: 0 4px 12px rgba(0, 114, 206, 0.3);
         }
-        .btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 114, 206, 0.4); }
+        .btn-modern.call-btn:hover {
+            box-shadow: 0 10px 25px rgba(0, 114, 206, 0.3);
+        }
 
-        .btn-whatsapp { 
+        .btn-modern.wa-btn::before {
             background: linear-gradient(135deg, #25D366, #128C7E);
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
-        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4); }
+        .btn-modern.wa-btn:hover {
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .call-btn .icon-wrapper {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            animation: pulse-blue 2s infinite;
+        }
+
+        .wa-btn .icon-wrapper {
+            background: #e8f9ef;
+            color: #25D366;
+            animation: pulse-green 2s infinite;
+        }
+
+        .btn-modern:hover .icon-wrapper {
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--white);
+            animation: none; 
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 114, 206, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0); }
+        }
+        @keyframes pulse-green-small {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
         /* النافذة المنبثقة (Modal) */
         .modal-overlay {
@@ -504,20 +581,77 @@
 
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4); }
 
-        /* الفوتر */
+        /* ----- تنسيقات الفوتر المحدثة ----- */
         footer {
             background-color: var(--dark-blue);
             color: var(--white);
             text-align: center;
-            padding: 20px 15px;
-            margin-top: 35px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            padding: 30px 15px 25px;
+            margin-top: 40px;
+            font-family: 'Cairo', sans-serif;
+            border-top: 4px solid var(--primary-blue);
         }
 
-        footer p { opacity: 0.9; }
+        footer p {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+            color: #f8fafc;
+        }
 
-        /* Media Queries للموبايل والشاشات الصغيرة */
+        .footer-credits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-credits span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        .footer-credits img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 5px;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .footer-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-blue);
+            box-shadow: 0 5px 15px rgba(0, 114, 206, 0.4);
+            color: var(--white);
+        }
+
+        /* لون مميز للواتساب في الفوتر عند الـ Hover */
+        .footer-btn[href*="wa.me"]:hover {
+            background-color: #25D366;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Media Queries للموبايل */
         @media (max-width: 650px) {
             .header-container {
                 grid-template-columns: 1fr;
@@ -538,8 +672,13 @@
                 border-radius: 14px;
             }
 
-            .btn-container .btn {
+            .btn-container {
+                gap: 12px;
+            }
+
+            .btn-modern {
                 width: 100%;
+                justify-content: flex-start;
             }
 
             .schedule-table th, .schedule-table td {
@@ -548,14 +687,14 @@
             }
 
             .table-book-btn {
-                padding: 6px 12px;
+                padding: 6px 10px 6px 6px;
                 font-size: 0.85rem;
             }
 
             .btn-whatsapp-circle {
-                width: 26px;
-                height: 26px;
-                font-size: 0.95rem;
+                width: 28px;
+                height: 28px;
+                font-size: 1.1rem;
             }
         }
 
@@ -612,7 +751,7 @@
                             <td>8:00 مساءً - 10:00 مساءً</td>
                             <td>
                                 <button class="table-book-btn" onclick="openBookingModal('السبت')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
                                     <span>احجز الآن</span>
                                 </button>
                             </td>
@@ -622,7 +761,7 @@
                             <td>8:00 مساءً - 10:00 مساءً</td>
                             <td>
                                 <button class="table-book-btn" onclick="openBookingModal('الأحد')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
                                     <span>احجز الآن</span>
                                 </button>
                             </td>
@@ -632,7 +771,7 @@
                             <td>8:00 مساءً - 10:00 مساءً</td>
                             <td>
                                 <button class="table-book-btn" onclick="openBookingModal('الثلاثاء')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
                                     <span>احجز الآن</span>
                                 </button>
                             </td>
@@ -642,7 +781,7 @@
                             <td>8:00 مساءً - 10:00 مساءً</td>
                             <td>
                                 <button class="table-book-btn" onclick="openBookingModal('الخميس')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
                                     <span>احجز الآن</span>
                                 </button>
                             </td>
@@ -684,15 +823,20 @@
 
         <!-- قسم الحجز والتواصل -->
         <div class="contact-section">
-            <div class="booking-text">الحجز عن طريق التليفون أو الواتساب</div>
+            <div class="booking-text">احجز الآن عبر التليفون أو الواتساب</div>
             <div class="btn-container">
-                <a href="tel:01005004772" class="btn btn-call">
-                    <i class="fa-solid fa-phone-flip"></i>
-                    01005004772
+                <a href="tel:01005004772" class="btn-modern call-btn">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-phone-volume fa-shake" style="--fa-animation-duration: 3s;"></i>
+                    </div>
+                    <span>0100 500 4772</span>
                 </a>
-                <button onclick="openBookingModal('عام')" class="btn btn-whatsapp">
-                    <i class="fa-brands fa-square-whatsapp"></i>
-                    تواصل عبر الواتساب
+                
+                <button onclick="openBookingModal('عام')" class="btn-modern wa-btn">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i>
+                    </div>
+                    <span>تواصل عبر الواتساب</span>
                 </button>
             </div>
         </div>
@@ -739,9 +883,15 @@
         </div>
     </div>
 
-    <!-- الفوتر -->
+    <!-- الفوتر مع حقوق التصميم -->
     <footer>
-        <p>DR. KARIM KHATTAB ORTHOPEDIC CLINIC &copy; جميع الحقوق محفوظة</p>
+        <p>&copy; جميع الحقوق محفوظة - DR. KARIM KHATTAB ORTHOPEDIC CLINIC </p>
+        <div class="footer-credits">
+            <span>تصميم بواسطة</span>
+            <img src="100.png" alt="شعار التصميم">
+            <a href="tel:01010255123" class="footer-btn" title="اتصال هاتفي"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://wa.me/201010255123" target="_blank" class="footer-btn" title="مراسلة عبر الواتساب"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
     </footer>
 
     <!-- جافاسكريبت -->
