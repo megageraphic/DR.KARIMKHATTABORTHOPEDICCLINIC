@@ -18,6 +18,8 @@
             --amber: #DD9A34;
             --whatsapp: #25D366;
             --whatsapp-deep: #128C7E;
+            --facebook: #1877F2;
+            --facebook-deep: #166FE5;
             --white: #ffffff;
             --text-muted: #4E6472;
             --line: #DCE7E8;
@@ -174,6 +176,13 @@
             box-shadow: 0 8px 22px rgba(37,211,102,0.35);
         }
         .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(37,211,102,0.5); }
+
+        .btn-facebook {
+            background: linear-gradient(135deg, var(--facebook), var(--facebook-deep));
+            color: var(--white);
+            box-shadow: 0 8px 22px rgba(24,119,242,0.35);
+        }
+        .btn-facebook:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(24,119,242,0.5); }
 
         .btn i { font-size: 1.05rem; }
 
@@ -594,6 +603,11 @@
             box-shadow: 0 5px 15px rgba(37,211,102,0.4);
         }
 
+        .footer-btn[href*="facebook.com"]:hover {
+            background-color: var(--facebook);
+            box-shadow: 0 5px 15px rgba(24,119,242,0.4);
+        }
+
         @media (max-width: 650px) {
             .hero { padding: 26px 16px 36px; }
             .hero-name-block { text-align: right; }
@@ -642,7 +656,7 @@
         <section class="section">
             <div class="section-head">
                 <h2>مواعيد العيادة</h2>
-                <span class="section-note">مول الدوحة - العاشر من رمضان</span>
+                <span class="section-note">مول الدوحة - العاشر من رمضان - مدخل أ - الدور الاول </span>
             </div>
 
             <div class="schedule-list">
@@ -714,7 +728,7 @@
 
     <!-- شريط الحجز الختامي -->
     <section class="cta-band">
-        <div class="booking-text">للتواصل</div>
+        <div class="booking-text">للتواصل ومتابعة العيادة</div>
         <div class="btn-container">
             <a href="tel:01005004772" class="btn btn-outline-light" dir="ltr">
                 <i class="fa-solid fa-phone-volume"></i>
@@ -724,6 +738,10 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>تواصل عبر الواتساب</span>
             </button>
+            <a href="https://www.facebook.com/eiadatdrkarim" target="_blank" class="btn btn-facebook">
+                <i class="fa-brands fa-facebook"></i>
+                <span>صفحة الفيسبوك</span>
+            </a>
         </div>
     </section>
 
@@ -780,6 +798,7 @@
             <img src="100.png" alt="شعار التصميم">
             <a href="tel:01010255123" class="footer-btn" title="اتصال هاتفي" dir="ltr"><i class="fa-solid fa-phone"></i></a>
             <a href="https://wa.me/201010255123" target="_blank" class="footer-btn" title="مراسلة عبر الواتساب"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/eiadatdrkarim" target="_blank" class="footer-btn" title="صفحة الفيسبوك"><i class="fa-brands fa-facebook"></i></a>
         </div>
     </footer>
 
