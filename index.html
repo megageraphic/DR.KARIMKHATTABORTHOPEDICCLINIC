@@ -8,15 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
-            --primary-blue: #0072CE;
-            --dark-blue: #0A2540;
-            --light-blue: #E8F4FC;
-            --accent-green: #25D366;
+            --ink: #0A2540;
+            --teal: #0E6E7A;
+            --teal-deep: #073B42;
+            --bone: #F1F6F6;
+            --amber: #DD9A34;
+            --whatsapp: #25D366;
+            --whatsapp-deep: #128C7E;
             --white: #ffffff;
-            --text-dark: #2C3E50;
+            --text-muted: #4E6472;
+            --line: #DCE7E8;
         }
 
         * {
@@ -26,414 +30,379 @@
             font-family: 'Cairo', sans-serif !important;
         }
 
+        i[class*="fa-"] {
+            font-family: "Font Awesome 6 Free" !important;
+        }
+        i.fa-brands[class*="fa-"], i[class*="fa-brands"] {
+            font-family: "Font Awesome 6 Brands" !important;
+        }
+        i.fa-solid[class*="fa-"], i[class*="fa-solid"] {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #f4f7fa;
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--bone);
+            color: var(--ink);
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+        img { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
 
-        /* الهيدر */
-        header {
-            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
-            color: var(--white);
-            padding: 20px 15px;
-            border-bottom: 5px solid var(--primary-blue);
-        }
-
-        .header-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-image-11 img {
-            height: 90px;
-            width: auto;
-            max-width: 140px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            display: block;
-        }
-
-        .header-text { text-align: center; }
-
-        .clinic-title {
-            font-size: clamp(1.4rem, 4vw, 2.2rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 4px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .subtitle {
-            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
-            color: #d1e8ff;
-            font-weight: 600;
-        }
-
-        .header-logo img {
-            height: 95px;
-            width: 95px;
-            object-fit: contain;
-            border-radius: 50%;
-            background-color: var(--white);
-            padding: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            display: block;
+        :focus-visible {
+            outline: 3px solid var(--amber);
+            outline-offset: 3px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 980px;
             margin: auto;
-            padding: 20px 15px;
+            padding: 0 18px;
         }
 
-        /* شعار العودة للحركة */
-        .slogan-card {
-            background: var(--white);
-            border-right: 6px solid var(--primary-blue);
-            padding: 20px 15px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        /* ======================= الهيرو ======================= */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(1200px 500px at 15% -10%, rgba(255,255,255,0.06), transparent 60%),
+                linear-gradient(160deg, var(--teal-deep), var(--ink) 70%);
+            color: var(--white);
+            padding: 34px 18px 46px;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1.4px);
+            background-size: 22px 22px;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            gap: 22px;
         }
 
-        .slogan-card h2 {
-            color: var(--dark-blue);
-            font-size: clamp(1.2rem, 3.5vw, 2rem);
-            font-weight: 800;
-            animation: textGlow 3s infinite alternate;
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            animation: heroRise 0.7s ease both;
         }
 
-        .slogan-card span.blue-glow {
-            color: var(--primary-blue);
-            animation: blueGlow 3s infinite alternate;
-        }
-
-        .slogan-card span.red-glow {
-            color: #d9534f;
-            animation: redGlow 3s infinite alternate;
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 2px rgba(10, 37, 64, 0.2); }
-            100% { text-shadow: 0 0 15px rgba(10, 37, 64, 0.5); }
-        }
-
-        @keyframes blueGlow {
-            0% { text-shadow: 0 0 2px rgba(0, 114, 206, 0.3); }
-            100% { text-shadow: 0 0 18px rgba(0, 114, 206, 1); }
-        }
-
-        @keyframes redGlow {
-            0% { text-shadow: 0 0 2px rgba(217, 83, 79, 0.3); }
-            100% { text-shadow: 0 0 18px rgba(217, 83, 79, 1); }
-        }
-
-        /* الكروت والبطاقات العامة */
-        .card {
+        .hero-logo {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
             background: var(--white);
-            border-radius: 18px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
+            padding: 4px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            flex-shrink: 0;
         }
 
-        .card-header {
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--light-blue);
-            padding-bottom: 12px;
+        .hero-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; display: block; }
+
+        .hero-doctor-photo {
+            width: 80.6px;
+            height: 80.6px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.35);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            flex-shrink: 0;
         }
 
-        .card-header h3 {
-            font-size: clamp(1.3rem, 3vw, 1.6rem);
+        .hero-doctor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hero-name-block { text-align: right; }
+        .hero-doctor-name { font-size: 1.05rem; font-weight: 800; }
+        .hero-doctor-role { font-size: 0.85rem; font-weight: 600; color: #BFE0E4; }
+
+        .hero-slogan {
+            font-size: clamp(1.7rem, 5vw, 2.7rem);
             font-weight: 800;
-            color: var(--dark-blue);
+            line-height: 1.35;
+            max-width: 720px;
+            animation: heroRise 0.8s 0.1s ease both;
         }
 
-        /* زر وأيقونة (احجز الآن) في الجدول */
-        .table-book-btn {
+        .hero-slogan .accent-teal { color: #7FD9C9; }
+        .hero-slogan .accent-amber { color: var(--amber); }
+
+        @keyframes heroRise {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, #25D366, #0e9347) !important;
-            color: #ffffff !important;
-            padding: 6px 16px 6px 8px;
+            padding: 13px 22px;
+            border-radius: 50px;
+            font-size: 0.98rem;
+            font-weight: 800;
+            text-decoration: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .btn-outline-light {
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            border-color: rgba(255,255,255,0.45);
+        }
+        .btn-outline-light:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-deep));
+            color: var(--white);
+            box-shadow: 0 8px 22px rgba(37,211,102,0.35);
+        }
+        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(37,211,102,0.5); }
+
+        .btn i { font-size: 1.05rem; }
+
+        /* ======================= أقسام عامة ======================= */
+        main { padding-top: 40px; }
+        .section { margin-bottom: 46px; }
+
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.25rem, 3vw, 1.6rem);
+            font-weight: 800;
+            color: var(--ink);
+        }
+
+        .section-head .section-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ======================= مواعيد العيادة ======================= */
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr auto;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+        }
+
+        .schedule-row + .schedule-row { border-top: 1px solid var(--line); }
+        .schedule-row:nth-child(even) { background: rgba(14,110,122,0.04); }
+
+        .schedule-day {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            color: var(--ink);
+        }
+
+        .schedule-day .day-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--teal);
+            flex-shrink: 0;
+        }
+
+        .schedule-time {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .schedule-book-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-deep));
+            color: var(--white) !important;
+            padding: 8px 16px 8px 8px;
             border-radius: 50px;
             border: none;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 800;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+            white-space: nowrap;
         }
 
-        .btn-whatsapp-circle {
-            width: 32px;
-            height: 32px;
-            background-color: #ffffff;
-            color: #25D366;
+        .schedule-book-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(37,211,102,0.45); }
+
+        .schedule-book-btn .icon-circle {
+            width: 26px;
+            height: 26px;
+            background: var(--white);
+            color: var(--whatsapp);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-size: 1rem;
             flex-shrink: 0;
-            animation: pulse-green-small 2s infinite; 
         }
 
-        .table-book-btn:hover {
-            transform: translateY(-2px) scale(1.04);
-            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.5);
-            background: linear-gradient(135deg, #1eb857, #0a6b60) !important;
-        }
-        .table-book-btn:hover .btn-whatsapp-circle {
-            animation: none;
-            transform: rotate(15deg);
-        }
-
-        /* جدول المواعيد */
-        .schedule-table-container { 
-            overflow-x: auto; 
-            position: relative;
-            border-radius: 14px;
+        /* ======================= العنوان ======================= */
+        .location-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px;
         }
 
-        .schedule-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 5px 0;
-            text-align: center;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.92);
-        }
-
-        .schedule-table::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('10.png') center/contain no-repeat;
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .schedule-table th, .schedule-table td {
-            padding: 14px;
-            vertical-align: middle;
-            position: relative;
-            z-index: 1;
-        }
-
-        .schedule-table th {
-            background: rgba(10, 37, 64, 0.95);
-            color: var(--white);
-            font-size: 1.05rem;
-            font-weight: 800;
-        }
-
-        .schedule-table td {
-            border-top: 1px solid #e2e8f0;
-            font-weight: 700;
-            color: var(--dark-blue);
-        }
-
-        .schedule-table tr:nth-child(even) td {
-            background-color: rgba(232, 244, 252, 0.4);
-        }
-
-        /* كارت العنوان */
-        .location-card { text-align: center; }
-        .location-info { font-size: clamp(1rem, 2.5vw, 1.15rem); line-height: 1.8; font-weight: 700; }
-
-        /* معرض الصور "أعمالنا" */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .gallery-item {
+        .location-icon {
+            width: 46px;
+            height: 46px;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border: 2px solid var(--light-blue);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            aspect-ratio: 4/3;
-        }
-
-        .gallery-item:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 8px 20px rgba(0,114,206,0.15);
-        }
-
-        .gallery-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            display: block; 
-        }
-
-        /* قسم التواصل والأزرار الحديثة */
-        .contact-section {
-            background: var(--white);
-            padding: 30px 20px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .booking-text { 
-            font-size: clamp(1.2rem, 3vw, 1.4rem); 
-            font-weight: 800; 
-            color: var(--dark-blue); 
-            margin-bottom: 25px; 
-        }
-
-        .btn-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-            flex-wrap: wrap; 
-        }
-
-        .btn-modern {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            padding: 8px 25px 8px 10px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--dark-blue);
-            background: var(--white);
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            z-index: 1;
-            min-width: 240px;
-        }
-
-        .btn-modern::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 100%;
-            border-radius: 50px;
-            transition: all 0.5s ease;
-            z-index: -1;
-        }
-
-        .btn-modern:hover {
-            border-color: transparent;
-            color: var(--white);
-            transform: translateY(-5px);
-        }
-
-        .btn-modern:hover::before {
-            width: 100%;
-        }
-
-        .btn-modern.call-btn::before {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-        }
-        .btn-modern.call-btn:hover {
-            box-shadow: 0 10px 25px rgba(0, 114, 206, 0.3);
-        }
-
-        .btn-modern.wa-btn::before {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-        }
-        .btn-modern.wa-btn:hover {
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .icon-wrapper {
+            background: var(--bone);
+            color: var(--teal);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            font-size: 1.4rem;
-            transition: all 0.4s ease;
+            font-size: 1.3rem;
             flex-shrink: 0;
         }
 
-        .call-btn .icon-wrapper {
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            animation: pulse-blue 2s infinite;
+        .location-text p { font-size: 1rem; font-weight: 600; color: var(--ink); }
+        .location-text p strong { color: var(--teal); font-weight: 800; }
+        .location-text p + p { margin-top: 6px; }
+
+        /* ======================= زر أعمالنا مع الأيقونة ======================= */
+        .gallery-link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px 24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        .wa-btn .icon-wrapper {
-            background: #e8f9ef;
-            color: #25D366;
-            animation: pulse-green 2s infinite;
+        .gallery-link-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(14,110,122,0.12);
         }
 
-        .btn-modern:hover .icon-wrapper {
-            background: rgba(255, 255, 255, 0.25);
+        .gallery-link-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .gallery-link-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(14,110,122,0.1);
+            color: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .gallery-link-text h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .gallery-link-text p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .gallery-link-arrow {
+            color: var(--teal);
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+        .gallery-link-card:hover .gallery-link-arrow {
+            transform: translateX(-5px);
+        }
+
+        /* ======================= شريط الحجز الختامي ======================= */
+        .cta-band {
+            background: linear-gradient(155deg, var(--ink), var(--teal-deep));
             color: var(--white);
-            animation: none; 
-            transform: scale(1.1);
+            text-align: center;
+            padding: 44px 18px;
         }
 
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        @keyframes pulse-blue {
-            0% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 114, 206, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0); }
-        }
-        @keyframes pulse-green-small {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        .cta-band .booking-text {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 800;
+            margin-bottom: 22px;
         }
 
-        /* النافذة المنبثقة (Modal) */
+        .cta-band .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .cta-band .btn-whatsapp { animation: pulseRing 2.4s infinite; }
+
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+            70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* ======================= النافذة المنبثقة (Modal) ======================= */
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 37, 64, 0.75);
+            inset: 0;
+            background: rgba(10,37,64,0.75);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -444,10 +413,7 @@
             padding: 15px;
         }
 
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
 
         .modal-box {
             background: var(--white);
@@ -463,21 +429,19 @@
             overflow-y: auto;
         }
 
-        .modal-overlay.active .modal-box {
-            transform: translateY(0);
-        }
+        .modal-overlay.active .modal-box { transform: translateY(0); }
 
         .close-modal {
             position: absolute;
             top: 15px;
             left: 15px;
-            background: #f1f5f9;
+            background: var(--bone);
             border: none;
             width: 34px;
             height: 34px;
             border-radius: 50%;
             font-size: 1.2rem;
-            color: var(--dark-blue);
+            color: var(--ink);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -485,29 +449,24 @@
             transition: background 0.2s;
         }
 
-        .close-modal:hover {
-            background: #e2e8f0;
-        }
+        .close-modal:hover { background: var(--line); }
 
         .modal-title {
             text-align: center;
-            color: var(--dark-blue);
-            font-size: 1.35rem;
+            color: var(--ink);
+            font-size: 1.3rem;
             font-weight: 800;
             margin-bottom: 18px;
-            border-bottom: 2px solid var(--light-blue);
+            border-bottom: 2px solid var(--line);
             padding-bottom: 10px;
         }
 
-        .form-group {
-            margin-bottom: 16px;
-            text-align: right;
-        }
+        .form-group { margin-bottom: 16px; text-align: right; }
 
         .form-group label {
             display: block;
             font-weight: 700;
-            color: var(--dark-blue);
+            color: var(--ink);
             margin-bottom: 6px;
             font-size: 0.95rem;
         }
@@ -515,26 +474,20 @@
         .form-control {
             width: 100%;
             padding: 11px 14px;
-            border: 2px solid #cbd5e1;
+            border: 2px solid var(--line);
             border-radius: 10px;
             font-size: 0.95rem;
             outline: none;
             transition: border-color 0.3s;
         }
 
-        .form-control:focus {
-            border-color: var(--primary-blue);
-        }
+        .form-control:focus { border-color: var(--teal); }
 
-        .checkbox-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 6px;
-        }
+        .checkbox-group { display: flex; gap: 10px; margin-top: 6px; }
 
         .checkbox-card {
             flex: 1;
-            border: 2px solid #cbd5e1;
+            border: 2px solid var(--line);
             border-radius: 10px;
             padding: 10px;
             display: flex;
@@ -547,21 +500,12 @@
             user-select: none;
         }
 
-        .checkbox-card input[type="radio"] {
-            width: 16px;
-            height: 16px;
-            accent-color: var(--primary-blue);
-            cursor: pointer;
-        }
-
-        .checkbox-card:hover {
-            border-color: var(--primary-blue);
-            background-color: var(--light-blue);
-        }
+        .checkbox-card input[type="radio"] { width: 16px; height: 16px; accent-color: var(--teal); cursor: pointer; }
+        .checkbox-card:hover { border-color: var(--teal); background-color: var(--bone); }
 
         .btn-submit {
             width: 100%;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-deep));
             color: var(--white);
             padding: 12px;
             border: none;
@@ -574,53 +518,39 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
             transition: all 0.3s ease;
             min-height: 48px;
         }
 
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4); }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.4); }
 
-        /* ----- تنسيقات الفوتر المحدثة ----- */
+        /* ======================= الفوتر ======================= */
         footer {
-            background-color: var(--dark-blue);
+            background-color: var(--ink);
             color: var(--white);
             text-align: center;
-            padding: 30px 15px 25px;
-            margin-top: 40px;
-            font-family: 'Cairo', sans-serif;
-            border-top: 4px solid var(--primary-blue);
+            padding: 28px 15px 24px;
         }
 
         footer p {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 700;
-            margin-bottom: 18px;
-            padding-bottom: 18px;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
-            color: #f8fafc;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed rgba(255,255,255,0.15);
+            color: #EAF3F3;
         }
 
-        .footer-credits {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-credits span {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #cbd5e1;
-        }
+        .footer-credits { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .footer-credits span { font-size: 0.88rem; font-weight: 600; color: #BCD3D6; }
 
         .footer-credits img {
-            height: 32px;
+            height: 30px;
             width: auto;
             object-fit: contain;
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255,255,255,0.9);
             padding: 2px 5px;
         }
 
@@ -628,226 +558,166 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255,255,255,0.1);
             color: var(--white);
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         .footer-btn:hover {
             transform: translateY(-3px);
-            background-color: var(--primary-blue);
-            box-shadow: 0 5px 15px rgba(0, 114, 206, 0.4);
-            color: var(--white);
+            background-color: var(--teal);
+            box-shadow: 0 5px 15px rgba(14,110,122,0.4);
         }
 
-        /* لون مميز للواتساب في الفوتر عند الـ Hover */
         .footer-btn[href*="wa.me"]:hover {
-            background-color: #25D366;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            background-color: var(--whatsapp);
+            box-shadow: 0 5px 15px rgba(37,211,102,0.4);
         }
 
-        /* Media Queries للموبايل */
         @media (max-width: 650px) {
-            .header-container {
+            .hero { padding: 26px 16px 36px; }
+            .hero-name-block { text-align: right; }
+
+            .schedule-row {
                 grid-template-columns: 1fr;
-                text-align: center;
-                justify-items: center;
-                gap: 15px;
+                justify-items: start;
+                gap: 8px;
+                position: relative;
+                padding: 14px 16px;
             }
+            .schedule-book-btn { position: absolute; left: 16px; top: 14px; }
+            .schedule-time { padding-left: 130px; }
 
-            .header-text { order: 1; }
-            .header-logo { order: 2; }
-            .header-image-11 { order: 3; }
-
-            .header-logo img { height: 80px; width: 80px; }
-            .header-image-11 img { height: 75px; }
-
-            .card {
-                padding: 18px 14px;
-                border-radius: 14px;
-            }
-
-            .btn-container {
-                gap: 12px;
-            }
-
-            .btn-modern {
-                width: 100%;
-                justify-content: flex-start;
-            }
-
-            .schedule-table th, .schedule-table td {
-                padding: 10px 6px;
-                font-size: 0.9rem;
-            }
-
-            .table-book-btn {
-                padding: 6px 10px 6px 6px;
-                font-size: 0.85rem;
-            }
-
-            .btn-whatsapp-circle {
-                width: 28px;
-                height: 28px;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
+            .location-block { flex-direction: column; align-items: center; text-align: center; }
+            .cta-band .btn-container { flex-direction: column; align-items: stretch; }
+            .cta-band .btn { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر -->
-    <header>
-        <div class="header-container">
-            <div class="header-image-11">
-                <img src="11.png" alt="صورة العيادة 11">
+    <!-- الهيرو -->
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-brand">
+                <div class="hero-doctor-photo">
+                    <img src="11.png" alt="صورة د. كريم خطاب">
+                </div>
+                <div class="hero-logo">
+                    <img src="10.png" alt="شعار العيادة - د. كريم خطاب">
+                </div>
+                <div class="hero-name-block">
+                    <div class="hero-doctor-name">د / كريم خطاب</div>
+                    <div class="hero-doctor-role">أخصائي جراحات العظام والكسور والإصابات</div>
+                </div>
             </div>
 
-            <div class="header-text">
-                <div class="clinic-title">د / كريم خطاب</div>
-                <div class="subtitle">أخصائي جراحات العظام والكسور والإصابات</div>
-            </div>
-
-            <div class="header-logo">
-                <img src="10.png" alt="شعار العيادة - د. كريم خطاب">
-            </div>
+            <h1 class="hero-slogan">العودة للحركة <span class="accent-teal">ممكنة</span> مهما كان الكسر <span class="accent-amber">صعب</span></h1>
         </div>
     </header>
 
-    <div class="container">
-        <!-- شعار الصفحة -->
-        <div class="slogan-card">
-            <h2>العودة للحركة <span class="blue-glow">ممكنة</span> مهما كان الكسر <span class="red-glow">صعب</span></h2>
-        </div>
+    <main class="container">
 
-        <!-- كارت مواعيد العيادة -->
-        <div class="card">
-            <div class="card-header">
-                <h3>مواعيد العيادة</h3>
+        <!-- مواعيد العيادة -->
+        <section class="section">
+            <div class="section-head">
+                <h2>مواعيد العيادة</h2>
+                <span class="section-note">مول الدوحة - العاشر من رمضان</span>
             </div>
-            <div class="schedule-table-container">
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>أيام العمل</th>
-                            <th>مواعيد الكشف</th>
-                            <th>الحجز المباشر</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>السبت</td>
-                            <td>8:00 مساءً - 10:00 مساءً</td>
-                            <td>
-                                <button class="table-book-btn" onclick="openBookingModal('السبت')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
-                                    <span>احجز الآن</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>الأحد</td>
-                            <td>8:00 مساءً - 10:00 مساءً</td>
-                            <td>
-                                <button class="table-book-btn" onclick="openBookingModal('الأحد')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
-                                    <span>احجز الآن</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>8:00 مساءً - 10:00 مساءً</td>
-                            <td>
-                                <button class="table-book-btn" onclick="openBookingModal('الثلاثاء')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
-                                    <span>احجز الآن</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>8:00 مساءً - 10:00 مساءً</td>
-                            <td>
-                                <button class="table-book-btn" onclick="openBookingModal('الخميس')">
-                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i></div>
-                                    <span>احجز الآن</span>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- كارت العنوان -->
-        <div class="card location-card">
-            <div class="card-header">
-                <h3>العنوان</h3>
+            <div class="schedule-list">
+                <div class="schedule-row">
+                    <div class="schedule-day"><span class="day-dot"></span>السبت</div>
+                    <div class="schedule-time">8:00 مساءً - 10:00 مساءً</div>
+                    <button class="schedule-book-btn" onclick="openBookingModal('السبت')">
+                        <span class="icon-circle"><i class="fa-brands fa-whatsapp"></i></span>
+                        <span>احجز الآن</span>
+                    </button>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-day"><span class="day-dot"></span>الأحد</div>
+                    <div class="schedule-time">8:00 مساءً - 10:00 مساءً</div>
+                    <button class="schedule-book-btn" onclick="openBookingModal('الأحد')">
+                        <span class="icon-circle"><i class="fa-brands fa-whatsapp"></i></span>
+                        <span>احجز الآن</span>
+                    </button>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-day"><span class="day-dot"></span>الثلاثاء</div>
+                    <div class="schedule-time">8:00 مساءً - 10:00 مساءً</div>
+                    <button class="schedule-book-btn" onclick="openBookingModal('الثلاثاء')">
+                        <span class="icon-circle"><i class="fa-brands fa-whatsapp"></i></span>
+                        <span>احجز الآن</span>
+                    </button>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-day"><span class="day-dot"></span>الخميس</div>
+                    <div class="schedule-time">8:00 مساءً - 10:00 مساءً</div>
+                    <button class="schedule-book-btn" onclick="openBookingModal('الخميس')">
+                        <span class="icon-circle"><i class="fa-brands fa-whatsapp"></i></span>
+                        <span>احجز الآن</span>
+                    </button>
+                </div>
             </div>
-            <div class="location-info">
-                <p><strong>المدينة:</strong> العاشر من رمضان</p>
-                <p><strong>المكان:</strong> مول الدوحة - مدخل أ - الدور الأول</p>
-            </div>
-        </div>
+        </section>
 
-        <!-- قسم معرض صور أعمالنا -->
-        <div class="card">
-            <div class="card-header">
-                <h3>أعمالنا</h3>
+        <!-- العنوان -->
+        <section class="section">
+            <div class="section-head"><h2>العنوان</h2></div>
+            <div class="location-block">
+                <div class="location-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="location-text">
+                    <p><strong>المدينة:</strong> العاشر من رمضان</p>
+                    <p><strong>المكان:</strong> مول الدوحة - مدخل أ - الدور الأول</p>
+                </div>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="11.png" alt="أعمالنا 11"></div>
-                <div class="gallery-item"><img src="12.png" alt="أعمالنا 12"></div>
-                <div class="gallery-item"><img src="13.png" alt="أعمالنا 13"></div>
-                <div class="gallery-item"><img src="14.png" alt="أعمالنا 14"></div>
-                <div class="gallery-item"><img src="15.png" alt="أعمالنا 15"></div>
-                <div class="gallery-item"><img src="16.png" alt="أعمالنا 16"></div>
-                <div class="gallery-item"><img src="17.png" alt="أعمالنا 17"></div>
-                <div class="gallery-item"><img src="18.png" alt="أعمالنا 18"></div>
-                <div class="gallery-item"><img src="19.png" alt="أعمالنا 19"></div>
-                <div class="gallery-item"><img src="20.png" alt="أعمالنا 20"></div>
-            </div>
-        </div>
+        </section>
 
-        <!-- قسم الحجز والتواصل -->
-        <div class="contact-section">
-            <div class="booking-text">احجز الآن عبر التليفون أو الواتساب</div>
-            <div class="btn-container">
-                <a href="tel:01005004772" class="btn-modern call-btn">
-                    <div class="icon-wrapper">
-                        <i class="fa-solid fa-phone-volume fa-shake" style="--fa-animation-duration: 3s;"></i>
+        <!-- زر الانتقال لصفحة أعمالنا مع الأيقونة -->
+        <section class="section">
+            <a href="gallery.html" class="gallery-link-card">
+                <div class="gallery-link-content">
+                    <div class="gallery-link-icon">
+                        <i class="fa-solid fa-images"></i>
                     </div>
-                    <span>0100 500 4772</span>
-                </a>
-                
-                <button onclick="openBookingModal('عام')" class="btn-modern wa-btn">
-                    <div class="icon-wrapper">
-                        <i class="fa-brands fa-whatsapp fa-beat" style="--fa-animation-duration: 2s;"></i>
+                    <div class="gallery-link-text">
+                        <h3>أعمالنا ومعرض الصور</h3>
+                        <p>تصفح صور الحالات والعمليات والعيادة</p>
                     </div>
-                    <span>تواصل عبر الواتساب</span>
-                </button>
-            </div>
-        </div>
-    </div>
+                </div>
+                <div class="gallery-link-arrow">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </a>
+        </section>
+    </main>
 
-    <!-- النافذة المنبثقة للـ حجز -->
+    <!-- شريط الحجز الختامي -->
+    <section class="cta-band">
+        <div class="booking-text">للتواصل</div>
+        <div class="btn-container">
+            <a href="tel:01005004772" class="btn btn-outline-light" dir="ltr">
+                <i class="fa-solid fa-phone-volume"></i>
+                <span>0100 500 4772</span>
+            </a>
+            <button onclick="openBookingModal('عام')" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>تواصل عبر الواتساب</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- النافذة المنبثقة للحجز -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-box">
             <button class="close-modal" onclick="closeBookingModal()">&times;</button>
             <div class="modal-title">حجز موعد بالعيادة</div>
-            
+
             <form id="bookingForm" onsubmit="sendBookingToWhatsApp(event)">
                 <div class="form-group">
                     <label for="patientName">الاسم الكامل:</label>
@@ -876,25 +746,24 @@
                 <input type="hidden" id="selectedDay" value="عام">
 
                 <button type="submit" class="btn-submit">
-                    <i class="fa-paper-plane"></i>
+                    <i class="fa-solid fa-paper-plane"></i>
                     إرسال الطلب
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- الفوتر مع حقوق التصميم -->
+    <!-- الفوتر -->
     <footer>
         <p>&copy; جميع الحقوق محفوظة - DR. KARIM KHATTAB ORTHOPEDIC CLINIC </p>
         <div class="footer-credits">
             <span>تصميم بواسطة</span>
             <img src="100.png" alt="شعار التصميم">
-            <a href="tel:01010255123" class="footer-btn" title="اتصال هاتفي"><i class="fa-solid fa-phone"></i></a>
+            <a href="tel:01010255123" class="footer-btn" title="اتصال هاتفي" dir="ltr"><i class="fa-solid fa-phone"></i></a>
             <a href="https://wa.me/201010255123" target="_blank" class="footer-btn" title="مراسلة عبر الواتساب"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </footer>
 
-    <!-- جافاسكريبت -->
     <script>
         function openBookingModal(day) {
             document.getElementById('selectedDay').value = day;
@@ -914,7 +783,6 @@
 
         function sendBookingToWhatsApp(e) {
             e.preventDefault();
-
             const name = document.getElementById('patientName').value.trim();
             const phone = document.getElementById('patientPhone').value.trim();
             const selectedDay = document.getElementById('selectedDay').value;
@@ -929,12 +797,10 @@
                             `📅 *الموعد المطلوب:* ${encodeURIComponent(dayText)}`;
 
             const whatsappUrl = `https://wa.me/201005004772?text=${message}`;
-
             window.open(whatsappUrl, '_blank');
             closeBookingModal();
             document.getElementById('bookingForm').reset();
         }
     </script>
-
 </body>
 </html>

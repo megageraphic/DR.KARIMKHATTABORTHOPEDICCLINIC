@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعمالنا - د/ كريم خطاب</title>
+    <!-- خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --ink: #0A2540;
+            --teal: #0E6E7A;
+            --teal-deep: #073B42;
+            --bone: #F1F6F6;
+            --amber: #DD9A34;
+            --white: #ffffff;
+            --text-muted: #4E6472;
+            --line: #DCE7E8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        body {
+            background-color: var(--bone);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 980px;
+            margin: auto;
+            padding: 0 18px;
+        }
+
+        /* هيدر الصفحة المستقلة */
+        .page-header {
+            background: linear-gradient(160deg, var(--teal-deep), var(--ink) 70%);
+            color: var(--white);
+            padding: 30px 18px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .back-home-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        main { padding: 40px 0; }
+
+        /* معرض الصور */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 14px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--line);
+            background: var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--amber);
+            box-shadow: 0 10px 20px rgba(221,154,52,0.2);
+        }
+
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--ink);
+            color: var(--white);
+            text-align: center;
+            padding: 24px 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #EAF3F3;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid { grid-template-columns: repeat(5, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>معرض أعمالنا الحالات والعيادة</h1>
+            <a href="index.html" class="back-home-btn">
+                <i class="fa-solid fa-arrow-right"></i>
+                العودة للرئيسية
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="11.png" alt="أعمالنا 11"></div>
+            <div class="gallery-item"><img src="12.png" alt="أعمالنا 12"></div>
+            <div class="gallery-item"><img src="13.png" alt="أعمالنا 13"></div>
+            <div class="gallery-item"><img src="14.png" alt="أعمالنا 14"></div>
+            <div class="gallery-item"><img src="15.png" alt="أعمالنا 15"></div>
+            <div class="gallery-item"><img src="16.png" alt="أعمالنا 16"></div>
+            <div class="gallery-item"><img src="17.png" alt="أعمالنا 17"></div>
+            <div class="gallery-item"><img src="18.png" alt="أعمالنا 18"></div>
+            <div class="gallery-item"><img src="19.png" alt="أعمالنا 19"></div>
+            <div class="gallery-item"><img src="20.png" alt="أعمالنا 20"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; جميع الحقوق محفوظة - DR. KARIM KHATTAB ORTHOPEDIC CLINIC</p>
+    </footer>
+
+</body>
+</html>
