@@ -28,6 +28,17 @@
             font-family: 'Cairo', sans-serif !important;
         }
 
+        i[class*="fa-"] {
+            font-family: "Font Awesome 6 Free" !important;
+        }
+        i.fa-brands[class*="fa-"], i[class*="fa-brands"] {
+            font-family: "Font Awesome 6 Brands" !important;
+        }
+        i.fa-solid[class*="fa-"], i[class*="fa-solid"] {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+
         body {
             background-color: var(--bone);
             color: var(--ink);
@@ -121,6 +132,50 @@
             color: #EAF3F3;
         }
 
+        .footer-credits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+        .footer-credits span { font-size: 0.88rem; font-weight: 600; color: #BCD3D6; }
+
+        .footer-credits img {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.9);
+            padding: 2px 5px;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .footer-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--teal);
+            box-shadow: 0 5px 15px rgba(14,110,122,0.4);
+        }
+
+        .footer-btn[href*="wa.me"]:hover {
+            background-color: #25D366;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+        }
+
         @media (min-width: 768px) {
             .gallery-grid { grid-template-columns: repeat(5, 1fr); }
         }
@@ -154,7 +209,13 @@
     </main>
 
     <footer>
-        <p>&copy; جميع الحقوق محفوظة - DR. KARIM KHATTAB ORTHOPEDIC CLINIC</p>
+        <p>&copy; جميع الحقوق محفوظة - DR. KARIM KHATTAB ORTHOPEDIC CLINIC </p>
+        <div class="footer-credits">
+            <span>تصميم بواسطة</span>
+            <img src="100.png" alt="شعار التصميم">
+            <a href="tel:01010255123" class="footer-btn" title="اتصال هاتفي" dir="ltr"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://wa.me/201010255123" target="_blank" class="footer-btn" title="مراسلة عبر الواتساب"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
     </footer>
 
 </body>
