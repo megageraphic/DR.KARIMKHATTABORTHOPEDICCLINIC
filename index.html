@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د/ كريم خطاب - أخصائي جراحات العظام والكسور والإصابات</title>
+    <!-- خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0072CE;
+            --dark-blue: #0A2540;
+            --light-blue: #E8F4FC;
+            --accent-green: #25D366;
+            --white: #ffffff;
+            --text-dark: #2C3E50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        body {
+            background-color: #f4f7fa;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 20px;
+            border-bottom: 5px solid var(--primary-blue);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-image-11 img {
+            height: 90px;
+            width: auto;
+            max-width: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: block;
+        }
+
+        .header-text { text-align: center; }
+
+        .clinic-title {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: #d1e8ff;
+            font-weight: 600;
+        }
+
+        .header-logo img {
+            height: 95px;
+            width: 95px;
+            object-fit: contain;
+            border-radius: 50%;
+            background-color: var(--white);
+            padding: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            display: block;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* شعار العودة للحركة */
+        .slogan-card {
+            background: var(--white);
+            border-right: 6px solid var(--primary-blue);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .slogan-card h2 {
+            color: var(--dark-blue);
+            font-size: 2rem;
+            font-weight: 800;
+            animation: textGlow 3s infinite alternate;
+        }
+
+        .slogan-card span.blue-glow {
+            color: var(--primary-blue);
+            animation: blueGlow 3s infinite alternate;
+        }
+
+        .slogan-card span.red-glow {
+            color: #d9534f;
+            animation: redGlow 3s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 2px rgba(10, 37, 64, 0.2); }
+            100% { text-shadow: 0 0 15px rgba(10, 37, 64, 0.5); }
+        }
+
+        @keyframes blueGlow {
+            0% { text-shadow: 0 0 2px rgba(0, 114, 206, 0.3); }
+            100% { text-shadow: 0 0 18px rgba(0, 114, 206, 1); }
+        }
+
+        @keyframes redGlow {
+            0% { text-shadow: 0 0 2px rgba(217, 83, 79, 0.3); }
+            100% { text-shadow: 0 0 18px rgba(217, 83, 79, 1); }
+        }
+
+        /* الكروت والبطاقات العامة */
+        .card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 22px;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 14px;
+        }
+
+        .card-header h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+        }
+
+        /* زر وأيقونة (احجز الآن) */
+        .table-book-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #0e9347) !important;
+            color: #ffffff !important;
+            padding: 8px 20px 8px 12px;
+            border-radius: 50px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+        }
+
+        .btn-whatsapp-circle {
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .table-book-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.5);
+            background: linear-gradient(135deg, #1eb857, #0a6b60) !important;
+        }
+
+        /* جدول المواعيد مع خلفية صورة 10.png الشفافة */
+        .schedule-table-container { 
+            overflow-x: auto; 
+            position: relative;
+            border-radius: 14px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 10px 0;
+            text-align: center;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.92);
+        }
+
+        .schedule-table::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('10.png') center/contain no-repeat;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 16px;
+            vertical-align: middle;
+            position: relative;
+            z-index: 1;
+        }
+
+        .schedule-table th {
+            background: rgba(10, 37, 64, 0.95);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .schedule-table td {
+            border-top: 1px solid #e2e8f0;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .schedule-table tr:nth-child(even) td {
+            background-color: rgba(232, 244, 252, 0.4);
+        }
+
+        /* كارت العنوان */
+        .location-card { text-align: center; }
+        .location-info { font-size: 1.15rem; line-height: 1.8; font-weight: 700; }
+
+        /* معرض الصور "أعمالنا" */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 2px solid var(--light-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(0,114,206,0.15);
+        }
+
+        .gallery-item img { width: 100%; height: 160px; object-fit: cover; display: block; }
+
+        /* قسم التواصل والحجز بالأيقونات المحدثة */
+        .contact-section {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .booking-text { font-size: 1.3rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 18px; }
+        .btn-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn i {
+            font-size: 1.2rem;
+        }
+
+        /* زر الاتصال بسماعة التليفون */
+        .btn-call { 
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            box-shadow: 0 4px 12px rgba(0, 114, 206, 0.3);
+        }
+        .btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 114, 206, 0.4); }
+
+        /* زر الواتساب مع اللوجو الأصلي */
+        .btn-whatsapp { 
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4); }
+
+        /* النافذة المنبثقة (Modal) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 37, 64, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 15px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: var(--white);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            padding: 28px 22px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #f1f5f9;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-title {
+            text-align: center;
+            color: var(--dark-blue);
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 11px 14px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .checkbox-card {
+            flex: 1;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .checkbox-card input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        .checkbox-card:hover {
+            border-color: var(--primary-blue);
+            background-color: var(--light-blue);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: var(--white);
+            padding: 13px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4); }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 35px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        footer p { opacity: 0.9; }
+
+        @media (max-width: 650px) {
+            .header-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+                gap: 12px;
+            }
+
+            .header-text { order: 1; }
+            .header-logo { order: 2; }
+            .header-image-11 { order: 3; }
+
+            .clinic-title { font-size: 1.6rem; }
+            .subtitle { font-size: 1rem; }
+            .slogan-card h2 { font-size: 1.35rem; }
+
+            .header-logo img { height: 80px; width: 80px; }
+            .header-image-11 img { height: 75px; }
+
+            .table-book-btn span { display: none; }
+            .table-book-btn { padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="header-container">
+            <div class="header-image-11">
+                <img src="11.png" alt="صورة العيادة 11">
+            </div>
+
+            <div class="header-text">
+                <div class="clinic-title">د / كريم خطاب</div>
+                <div class="subtitle">أخصائي جراحات العظام والكسور والإصابات</div>
+            </div>
+
+            <div class="header-logo">
+                <img src="10.png" alt="شعار العيادة - د. كريم خطاب">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- شعار الصفحة -->
+        <div class="slogan-card">
+            <h2>العودة للحركة <span class="blue-glow">ممكنة</span> مهما كان الكسر <span class="red-glow">صعب</span></h2>
+        </div>
+
+        <!-- كارت مواعيد العيادة مع صورة 10.png شفافة خلف الجدول -->
+        <div class="card">
+            <div class="card-header">
+                <h3>مواعيد العيادة</h3>
+            </div>
+            <div class="schedule-table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>أيام العمل</th>
+                            <th>مواعيد الكشف</th>
+                            <th>الحجز المباشر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>السبت</td>
+                            <td>8:00 مساءً - 10:00 مساءً</td>
+                            <td>
+                                <button class="table-book-btn" onclick="openBookingModal('السبت')">
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <span>احجز الآن</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>الأحد</td>
+                            <td>8:00 مساءً - 10:00 مساءً</td>
+                            <td>
+                                <button class="table-book-btn" onclick="openBookingModal('الأحد')">
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <span>احجز الآن</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>الثلاثاء</td>
+                            <td>8:00 مساءً - 10:00 مساءً</td>
+                            <td>
+                                <button class="table-book-btn" onclick="openBookingModal('الثلاثاء')">
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <span>احجز الآن</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>الخميس</td>
+                            <td>8:00 مساءً - 10:00 مساءً</td>
+                            <td>
+                                <button class="table-book-btn" onclick="openBookingModal('الخميس')">
+                                    <div class="btn-whatsapp-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <span>احجز الآن</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- كارت العنوان -->
+        <div class="card location-card">
+            <div class="card-header">
+                <h3>العنوان</h3>
+            </div>
+            <div class="location-info">
+                <p><strong>المدينة:</strong> العاشر من رمضان</p>
+                <p><strong>المكان:</strong> مول الدوحة - مدخل أ - الدور الأول</p>
+            </div>
+        </div>
+
+        <!-- قسم معرض صور أعمالنا -->
+        <div class="card">
+            <div class="card-header">
+                <h3>أعمالنا</h3>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="11.png" alt="أعمالنا 11"></div>
+                <div class="gallery-item"><img src="12.png" alt="أعمالنا 12"></div>
+                <div class="gallery-item"><img src="13.png" alt="أعمالنا 13"></div>
+                <div class="gallery-item"><img src="14.png" alt="أعمالنا 14"></div>
+                <div class="gallery-item"><img src="15.png" alt="أعمالنا 15"></div>
+                <div class="gallery-item"><img src="16.png" alt="أعمالنا 16"></div>
+                <div class="gallery-item"><img src="17.png" alt="أعمالنا 17"></div>
+                <div class="gallery-item"><img src="18.png" alt="أعمالنا 18"></div>
+                <div class="gallery-item"><img src="19.png" alt="أعمالنا 19"></div>
+                <div class="gallery-item"><img src="20.png" alt="أعمالنا 20"></div>
+            </div>
+        </div>
+
+        <!-- قسم الحجز والتواصل بالأيقونات المحدثة -->
+        <div class="contact-section">
+            <div class="booking-text">الحجز عن طريق التليفون أو الواتساب</div>
+            <div class="btn-container">
+                <!-- زر الاتصال بأيقونة جديدة -->
+                <a href="tel:01005004772" class="btn btn-call">
+                    <i class="fa-solid fa-phone-flip"></i>
+                    01005004772
+                </a>
+                <!-- زر التحدث عبر الواتساب بأيقونة مربعة -->
+                <button onclick="openBookingModal('عام')" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-square-whatsapp"></i>
+                    تواصل عبر الواتساب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- النافذة المنبثقة للـ حجز -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeBookingModal()">&times;</button>
+            <div class="modal-title">حجز موعد بالعيادة</div>
+            
+            <form id="bookingForm" onsubmit="sendBookingToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="patientName">الاسم الكامل:</label>
+                    <input type="text" id="patientName" class="form-control" placeholder="أدخل اسمك الكريم" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="patientPhone">رقم التليفون (11 رقم):</label>
+                    <input type="tel" id="patientPhone" class="form-control" placeholder="01XXXXXXXXX" pattern="01[0-9]{9}" maxlength="11" required title="يرجى إدخال رقم تليفون محمول مصري مكون من 11 رقماً يبدأ بـ 01">
+                </div>
+
+                <div class="form-group">
+                    <label>نوع الكشف:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-card">
+                            <input type="radio" name="visitType" value="كشف جديد" checked>
+                            <span>كشف جديد</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="radio" name="visitType" value="إعادة كشف">
+                            <span>إعادة كشف</span>
+                        </label>
+                    </div>
+                </div>
+
+                <input type="hidden" id="selectedDay" value="عام">
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-paper-plane"></i>
+                    إرسال الطلب
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>DR. KARIM KHATTAB ORTHOPEDIC CLINIC &copy; جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- جافاسكريبت -->
+    <script>
+        function openBookingModal(day) {
+            document.getElementById('selectedDay').value = day;
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        }
+
+        function sendBookingToWhatsApp(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('patientName').value.trim();
+            const phone = document.getElementById('patientPhone').value.trim();
+            const selectedDay = document.getElementById('selectedDay').value;
+            const visitType = document.querySelector('input[name="visitType"]:checked').value;
+
+            let dayText = selectedDay !== 'عام' ? `يوم: ${selectedDay}` : 'في أقرب موعد';
+
+            const message = `مرحباً دكتور كريم، أرغب في حجز موعد بالعيادة:%0A` +
+                            `👤 *الاسم:* ${encodeURIComponent(name)}%0A` +
+                            `📱 *رقم التليفون:* ${phone}%0A` +
+                            `📋 *نوع الكشف:* ${encodeURIComponent(visitType)}%0A` +
+                            `📅 *الموعد المطلوب:* ${encodeURIComponent(dayText)}`;
+
+            const whatsappUrl = `https://wa.me/201005004772?text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+            closeBookingModal();
+            document.getElementById('bookingForm').reset();
+        }
+    </script>
+
+</body>
+</html>
