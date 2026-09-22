@@ -451,6 +451,21 @@
 
         .close-modal:hover { background: var(--line); }
 
+        .modal-selected-day {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            background: rgba(14,110,122,0.08);
+            border: 1px solid var(--teal);
+            color: var(--teal-deep);
+            font-weight: 700;
+            font-size: 0.92rem;
+            padding: 8px 14px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+        }
+        .modal-selected-day.active { display: flex; }
+
         .modal-title {
             text-align: center;
             color: var(--ink);
@@ -717,6 +732,10 @@
         <div class="modal-box">
             <button class="close-modal" onclick="closeBookingModal()">&times;</button>
             <div class="modal-title">حجز موعد بالعيادة</div>
+            <div class="modal-selected-day" id="modalSelectedDay">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span id="modalSelectedDayText"></span>
+            </div>
 
             <form id="bookingForm" onsubmit="sendBookingToWhatsApp(event)">
                 <div class="form-group">
@@ -767,6 +786,16 @@
     <script>
         function openBookingModal(day) {
             document.getElementById('selectedDay').value = day;
+
+            const dayBadge = document.getElementById('modalSelectedDay');
+            const dayBadgeText = document.getElementById('modalSelectedDayText');
+            if (day !== 'عام') {
+                dayBadgeText.textContent = `الموعد المختار: يوم ${day}`;
+                dayBadge.classList.add('active');
+            } else {
+                dayBadge.classList.remove('active');
+            }
+
             document.getElementById('bookingModal').classList.add('active');
         }
 
